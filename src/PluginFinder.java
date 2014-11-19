@@ -44,13 +44,13 @@ public class PluginFinder implements ActionListener {
 		knownFiles = currentFiles;
 	}
 
-	private Set<File> ListFiles() {
+	protected Set<File> ListFiles() {
 
 		return new HashSet<File>(Arrays.asList(directory.listFiles(filter)));
 
 	}
 
-	private void notifyListeners(File file) {
+	protected void notifyListeners(File file) {
 
 		ArrayList<PluginEventListener> listenerCopy = new ArrayList<PluginEventListener>(
 				listeners);

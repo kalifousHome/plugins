@@ -1,19 +1,8 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.EventListener;
 
 
-public class PluginEventListener implements ActionListener{
+public interface PluginEventListener extends EventListener{
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void pluginAdded(PluginAddedEvent pluginAddedEvent) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+	public void pluginAdded(PluginAddedEvent e);
 
 }

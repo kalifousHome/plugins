@@ -1,9 +1,19 @@
+package plugins;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.lang.reflect.Constructor;
+/**
+ * Class PluginFilter used to find plugin files with .class extension
+ * 
+ **/
 
 public class PluginFilter implements FilenameFilter {
-
+	
+	/**
+	 *@param dir droppins directory
+	 *@param name name of the plugin to add
+	 *@return boolean
+	 **/
 	@Override
 	public boolean accept(File dir, String name) {
 		if (!fileExtensionIsClass(name))
@@ -18,6 +28,7 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	protected boolean classHasParameterLessConstructor(Class<?> theClass) {
+		
 		for(Constructor<?> constructor : theClass.getConstructors()){
 			if(constructor.getParameterTypes().length == 0)
 				return true;
@@ -27,7 +38,7 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	protected boolean classInPluginPackage(Class<?> theClass) {
-		return theClass.getPackage().getName().equals("plugin");
+		return theClass.getPackage().getName().equals("plugins");
 	}
 
 	protected boolean inheritfromPlugin(Class<?> theClass) {
@@ -37,7 +48,7 @@ public class PluginFilter implements FilenameFilter {
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
 		try {
-			return Class.forName("plugin" + className);
+			return Class.forName("plugins" + className);
 		} catch (ClassNotFoundException e) {
 			return null;
 		}

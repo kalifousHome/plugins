@@ -1,3 +1,4 @@
+package plugins;
 public class Main {
 
 	public static void main(String[] args) {
@@ -7,7 +8,7 @@ public class Main {
 
 			Plugin test = (Plugin) classTest.newInstance();
 
-			test.fct();
+			test.getLabel();
 		} catch (Exception e) {
 			
 			e.printStackTrace();

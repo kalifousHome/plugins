@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="PluginFilter" project="plugins" file="/plugins/src/PluginFilter.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="493" y="457"/>    
+    <position height="-1" width="-1" x="479" y="468"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="PluginFinder" project="plugins" file="/plugins/src/PluginFinder.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="634" y="159"/>    
+    <position height="-1" width="-1" x="483" y="228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="ConfigurableTimer" project="plugins" file="/plugins/src/ConfigurableTimer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="130" y="167"/>    
+    <position height="-1" width="-1" x="144" y="228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,44 +30,78 @@
   </class>  
   <class id="4" language="java" name="PluginAddedEvent" project="plugins" file="/plugins/src/PluginAddedEvent.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="77" width="135" x="57" y="343"/>    
+    <position height="-1" width="-1" x="770" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="PluginEventListener" project="plugins" 
+  <interface id="5" language="java" name="PluginEventListener" project="plugins" 
     file="/plugins/src/PluginEventListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="382" y="68"/>    
+    <position height="-1" width="-1" x="483" y="51"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="Plugin" project="plugins" file="/plugins/src/Plugin.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="168" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="PluginAddLogger" project="plugins" file="/plugins/src/PluginAddLogger.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="753" y="46"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="6">    
+  <association id="8">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="7" name="timer"/>      
-      <multiplicity id="8" minimum="0" maximum="1"/>    
+      <attribute id="9" name="listeners">        
+        <position height="0" width="0" x="101" y="-17"/>      
+      </attribute>      
+      <multiplicity id="10" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="101" y="-17"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="9">    
+  <realization id="11">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="12">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="10" name="filter"/>      
-      <multiplicity id="11" minimum="0" maximum="1"/>    
+      <attribute id="13" name="filter">        
+        <position height="0" width="0" x="-14" y="11"/>      
+      </attribute>      
+      <multiplicity id="14" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-14" y="11"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="12">    
+  <association id="15">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="13" name="listeners"/>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+      <attribute id="16" name="timer">        
+        <position height="0" width="0" x="14" y="61"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="1">        
+        <position height="0" width="0" x="14" y="61"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

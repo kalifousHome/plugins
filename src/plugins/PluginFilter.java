@@ -12,11 +12,11 @@ import java.lang.reflect.Constructor;
 public class PluginFilter implements FilenameFilter {
 
 	/**
-	 * @param dir
+	 *@param dir
 	 *            drop-in directory
-	 * @param name
+	 *@param name
 	 *            name of the plug-in to add
-	 * @return if the plug-in can be added
+	 *@return if the plug-in can be added
 	 **/
 	@Override
 	public boolean accept(File dir, String name) {
@@ -33,8 +33,8 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 * @param theClass
-	 * @return
+	 *@param theClass
+	 *@return
 	 */
 
 	protected boolean classHasParameterLessConstructor(Class<?> theClass) {
@@ -50,8 +50,8 @@ public class PluginFilter implements FilenameFilter {
 	/**
 	 * 
 	 * 
-	 * @param theClass
-	 * @return
+	 *@param theClass
+	 *@return
 	 */
 	protected boolean classInPluginPackage(Class<?> theClass) {
 		return theClass.getPackage().getName().equals("plugins");
@@ -59,8 +59,8 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 * @param theClass
-	 * @return
+	 *@param theClass
+	 *@return
 	 */
 	protected boolean inheritfromPlugin(Class<?> theClass) {
 		return Plugin.class.isAssignableFrom(theClass);
@@ -68,9 +68,9 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 * @param dir
-	 * @param filename
-	 * @return
+	 *@param dir
+	 *@param filename
+	 *@return
 	 */
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
@@ -83,8 +83,8 @@ public class PluginFilter implements FilenameFilter {
 
 	/***
 	 * 
-	 * @param filename
-	 * @return
+	 *@param filename
+	 *@return
 	 */
 	protected boolean fileExtensionIsClass(String filename) {
 		return filename.endsWith(".class");

@@ -14,7 +14,6 @@ import java.util.Set;
  */
 
 /**
- * @author kalifou
  * 
  */
 public class PluginFinder implements ActionListener {
@@ -32,7 +31,7 @@ public class PluginFinder implements ActionListener {
 	protected PluginFilter filter;
 
 	/**
-	 * @param directory
+	 *@param directory
 	 *            the directory where we are going to check the content in order
 	 *            to find the .class
 	 * */
@@ -43,7 +42,7 @@ public class PluginFinder implements ActionListener {
 	}
 
 	/**
-	 * @param not used
+	 *@param not used
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -60,7 +59,7 @@ public class PluginFinder implements ActionListener {
 	}
 
 	/**
-	 * @return returns a set containing the files or directory both contained in
+	 *@return returns a set containing the files or directory both contained in
 	 *         the attribute directory and satisfying a the attribute filter
 	 * 
 	 */

@@ -14,12 +14,21 @@ public class ConfigurableTimer implements ActionListener{
 	protected int nb_iterations;
 	protected final ActionListener listener;
 	
+	/**
+	 * 
+	 * @param listener
+	 * @param max_iterations
+	 */
 	public ConfigurableTimer(ActionListener listener, int max_iterations){
 		
 		this.listener = listener;
 		this.MAX_ITERATIONS = max_iterations;
 	
 	}
+	/**
+	 * 
+	 * @param listener
+	 */
 	public ConfigurableTimer(ActionListener listener){
 		
 		this(listener, 0);
@@ -32,9 +41,10 @@ public class ConfigurableTimer implements ActionListener{
 		listener.actionPerformed(e);
 		
 	}
-	/**
+	/** Creates and starts a timer that fires an action event 
+	 * at the frequency specified by the parameter using this ActionListener
 	 * 
-	 * @param milliseconds
+	 * @param milliseconds the delay used between every trigger of the timer 
 	 */
 	public void start(int milliseconds){
 		

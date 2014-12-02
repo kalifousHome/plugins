@@ -12,14 +12,15 @@ import java.lang.reflect.Constructor;
 public class PluginFilter implements FilenameFilter {
 
 	/**
-	 *@param dir
+	 * @param dir
 	 *            drop-in directory
-	 *@param name
+	 * @param name
 	 *            name of the plug-in to add
-	 *@return if the plug-in can be added
+	 * @return if the plug-in can be added
 	 **/
 	@Override
 	public boolean accept(File dir, String name) {
+
 		if (!fileExtensionIsClass(name))
 			return false;
 
@@ -33,8 +34,8 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 *@param theClass
-	 *@return returns
+	 * @param theClass
+	 * @return returns
 	 */
 
 	protected boolean classHasParameterLessConstructor(Class<?> theClass) {
@@ -50,8 +51,8 @@ public class PluginFilter implements FilenameFilter {
 	/**
 	 * 
 	 * 
-	 *@param theClass
-	 *@return returns
+	 * @param theClass
+	 * @return returns
 	 */
 	protected boolean classInPluginPackage(Class<?> theClass) {
 		return theClass.getPackage().getName().equals("plugins");
@@ -59,8 +60,8 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 *@param theClass
-	 *@return returns
+	 * @param theClass
+	 * @return returns
 	 */
 	protected boolean inheritfromPlugin(Class<?> theClass) {
 		return Plugin.class.isAssignableFrom(theClass);
@@ -68,9 +69,9 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * 
-	 *@param dir
-	 *@param filename
-	 *@return returns
+	 * @param dir
+	 * @param filename
+	 * @return returns
 	 */
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
@@ -83,11 +84,37 @@ public class PluginFilter implements FilenameFilter {
 
 	/***
 	 * 
-	 *@param filename
-	 *@return returns
+	 * @param filename
+	 * @return returns
 	 */
 	protected boolean fileExtensionIsClass(String filename) {
 		return filename.endsWith(".class");
+	}
+
+	public void testing(File dir, String name) {
+
+		if (this.accept(dir, name)) {
+
+			try {
+
+				Class<?> classTest = Class.forName("plugins.FunnyPlugin");
+
+				Plugin test = (Plugin) classTest.newInstance();
+
+				System.out.print(test.getLabel());
+
+				System.out.print(test.helpMessage());
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+
+			}
+
+		}
+		else
+			System.out.print("DOESNT ACCEPT THE PLUGIN\n");
+
 	}
 
 }

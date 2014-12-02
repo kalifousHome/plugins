@@ -3,7 +3,7 @@ import java.io.File;
 import java.util.EventObject;
 /**
  * Description : 
- *
+ *	Class representing an identified plug-in as an event.
  */
 
 public class PluginEvent extends EventObject {

@@ -1,20 +1,20 @@
 package plugins;
 /**
  *  Description :
- *  Interface defining a common type for plugins and specifying minimum needed methods		
+ *  Interface defining a common type for plug-ins and specifying minimum needed methods		
  *  
  */
 
 public interface Plugin {
 
 	/**	Applying a transformation to a text 
-	 * @param	s the text to be transformed by the plugin
-	 * @return returns the text transformed by the plugin
+	 * @param	s the text to be transformed by the plug-in
+	 * @return returns the text transformed by the plug-in
 	 * 	 */
 	public String transform(String s);
 	
-	/** Getting a description of the plugin 
-	 * @return returns the label of the plugin (i.e an explicit description )
+	/** Getting a description of the plug-in 
+	 * @return returns the label of the plug-in (i.e an explicit description )
 	 */
 	public String getLabel();
 	

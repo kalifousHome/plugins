@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class PluginFinder implements ActionListener {
 
-	/* Attributs */
+	/* Attributes */
 	private static final int REFRESH_INTERVAL_MS = 1000;
 	protected final File directory; /*
 									 * Le repertoire qu'on va observer chaque
@@ -27,6 +27,7 @@ public class PluginFinder implements ActionListener {
 									 */
 	protected final List<PluginEventListener> listeners = new ArrayList<PluginEventListener>();
 	protected final ConfigurableTimer timer;
+	/* Set of identified plug-ins */
 	protected Set<File> knownFiles = new HashSet<File>();
 	protected PluginFilter filter;
 

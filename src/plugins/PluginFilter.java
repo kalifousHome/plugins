@@ -5,7 +5,7 @@ import java.io.FilenameFilter;
 import java.lang.reflect.Constructor;
 
 /**
- * Class PluginFilter used to find plugin files with .class extension
+ * Class PluginFilter used to find plug-in files with .class extension
  * 
  **/
 
@@ -13,10 +13,10 @@ public class PluginFilter implements FilenameFilter {
 
 	/**
 	 * @param dir
-	 *            droppins directory
+	 *            drop-in directory
 	 * @param name
-	 *            name of the plugin to add
-	 * @return if the plugin can be added
+	 *            name of the plug-in to add
+	 * @return if the plug-in can be added
 	 **/
 	@Override
 	public boolean accept(File dir, String name) {

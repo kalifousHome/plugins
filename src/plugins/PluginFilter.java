@@ -1,18 +1,22 @@
 package plugins;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.lang.reflect.Constructor;
+
 /**
  * Class PluginFilter used to find plugin files with .class extension
  * 
  **/
 
 public class PluginFilter implements FilenameFilter {
-	
+
 	/**
-	 *@param dir droppins directory
-	 *@param name name of the plugin to add
-	 *@return boolean
+	 * @param dir
+	 *            droppins directory
+	 * @param name
+	 *            name of the plugin to add
+	 * @return if the plugin can be added
 	 **/
 	@Override
 	public boolean accept(File dir, String name) {
@@ -27,24 +31,47 @@ public class PluginFilter implements FilenameFilter {
 				&& classHasParameterLessConstructor(theClass);
 	}
 
+	/**
+	 * 
+	 * @param theClass
+	 * @return
+	 */
+
 	protected boolean classHasParameterLessConstructor(Class<?> theClass) {
-		
-		for(Constructor<?> constructor : theClass.getConstructors()){
-			if(constructor.getParameterTypes().length == 0)
+
+		for (Constructor<?> constructor : theClass.getConstructors()) {
+			if (constructor.getParameterTypes().length == 0)
 				return true;
 		}
-		
+
 		return false;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @param theClass
+	 * @return
+	 */
 	protected boolean classInPluginPackage(Class<?> theClass) {
 		return theClass.getPackage().getName().equals("plugins");
 	}
 
+	/**
+	 * 
+	 * @param theClass
+	 * @return
+	 */
 	protected boolean inheritfromPlugin(Class<?> theClass) {
 		return Plugin.class.isAssignableFrom(theClass);
 	}
 
+	/**
+	 * 
+	 * @param dir
+	 * @param filename
+	 * @return
+	 */
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
 		try {
@@ -54,6 +81,11 @@ public class PluginFilter implements FilenameFilter {
 		}
 	}
 
+	/***
+	 * 
+	 * @param filename
+	 * @return
+	 */
 	protected boolean fileExtensionIsClass(String filename) {
 		return filename.endsWith(".class");
 	}

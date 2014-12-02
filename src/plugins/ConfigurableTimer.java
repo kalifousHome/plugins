@@ -5,11 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
- * 
- */
-
-/**
- * @author kalifou
+ *
  *
  */
 public class ConfigurableTimer implements ActionListener{
@@ -36,13 +32,18 @@ public class ConfigurableTimer implements ActionListener{
 		listener.actionPerformed(e);
 		
 	}
+	/**
+	 * 
+	 * @param milliseconds
+	 */
 	public void start(int milliseconds){
 		
 		nb_iterations = 0;
 		Timer timer = new Timer( milliseconds, this);
 		timer.start();
+		
 		while(MAX_ITERATIONS == 0 || nb_iterations < MAX_ITERATIONS){
-			System.err.print(" ");
+			System.err.print("ERROR\n");
 		}	
 		timer.stop();
 		

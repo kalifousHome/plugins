@@ -76,7 +76,7 @@ public class PluginFilter implements FilenameFilter {
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
 		try {
-			return Class.forName("plugins" + className);
+			return Class.forName("plugins." + className);
 		} catch (ClassNotFoundException e) {
 			return null;
 		}

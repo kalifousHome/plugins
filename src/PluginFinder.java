@@ -16,20 +16,29 @@ import java.util.Set;
  * 
  */
 public class PluginFinder implements ActionListener {
-
-	private static final int REFRESH_INTERVAL_MS = 1000;
-	protected final File directory;
+	
+	
+	/*Attributs*/
+	private static final int REFRESH_INTERVAL_MS = 1000; 
+	protected final File directory; /* Le repertoire qu'on va observer chaque seconde */
 	protected final List<PluginEventListener> listeners = new ArrayList<PluginEventListener>();
-	protected final ConfigurableTimer timer;
+	protected final ConfigurableTimer timer;	
 	protected Set<File> knownFiles = new HashSet<File>();
 	protected PluginFilter filter;
 
+	/**
+	 * @param directory the directory where we are going to check the content in order to find the .class
+	 * */
 	public PluginFinder(File directory) {
 
 		this.directory = directory;
 		this.timer = new ConfigurableTimer(this);
 	}
 
+	
+	/**
+	 *  
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -60,6 +69,10 @@ public class PluginFinder implements ActionListener {
 		}
 	}
 
+	
+	/**
+	 * start the timer 
+	 */
 	public void start() {
 
 		timer.start(REFRESH_INTERVAL_MS);

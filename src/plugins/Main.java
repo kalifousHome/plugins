@@ -25,11 +25,8 @@ public class Main {
 		
 			File directory = new File("/home/git/plugins/src/plugins/");
 			PluginFinder finder = new PluginFinder(directory);	
-			ConfigurableTimer c = new ConfigurableTimer(finder);
-		
-			while(true){
-				c.start(5);
-			}
+			ConfigurableTimer c = new ConfigurableTimer(finder)	;	
+			c.start(5);
 			
 
 	}

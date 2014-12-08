@@ -6,7 +6,7 @@ import java.util.EventListener;
  *
  */
 
-public interface PluginListener extends EventListener{
+public interface PluginEventListener extends EventListener{
 	/** 	 * 
 	 *@param e the added plug-in
 	 */

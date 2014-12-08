@@ -4,7 +4,7 @@ package plugins;
  * Description :
  * Class need to notify that a plug-in has been properly added 
  */
-public class PluginAddLogger  implements PluginListener{
+public class PluginAddLogger  implements PluginEventListener{
 	/**
 	 *@param e the the added plug-in that we need to notify the user about
 	 */

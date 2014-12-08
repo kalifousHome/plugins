@@ -22,7 +22,7 @@ public class PluginFinder implements ActionListener {
 									 * Le repertoire qu'on va observer chaque
 									 * seconde
 									 */
-	protected final List<PluginListener> listeners = new ArrayList<PluginListener>();
+	protected final List<PluginEventListener> listeners = new ArrayList<PluginEventListener>();
 	protected final ConfigurableTimer timer;
 	/* Set of identified plug-ins */
 	protected Set<File> knownFiles = new HashSet<File>();
@@ -73,10 +73,10 @@ public class PluginFinder implements ActionListener {
 	 */
 	protected void notifyListeners(File file) {
 
-		ArrayList<PluginListener> listenerCopy = new ArrayList<PluginListener>(
+		ArrayList<PluginEventListener> listenerCopy = new ArrayList<PluginEventListener>(
 				listeners);
 
-		for (PluginListener listener : listenerCopy) {
+		for (PluginEventListener listener : listenerCopy) {
 			/* Only in case if it satisfies the conditions defined by filters ?? */
 			listener.pluginAdded(new PluginEvent(file));
 		}
@@ -94,7 +94,7 @@ public class PluginFinder implements ActionListener {
 	 * 
 	 *@param listener the listener to add to the list of listeners
 	 */
-	public synchronized void addListener(PluginListener listener) {
+	public synchronized void addListener(PluginEventListener listener) {
 
 		listeners.add(listener);
 

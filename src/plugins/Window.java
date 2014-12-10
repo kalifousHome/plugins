@@ -14,7 +14,7 @@ public class Window {
 	protected JFrame frame ;
 	protected JTextArea textArea ;
 	protected JMenu file ;
-	protected JMenu tools;
+	protected ToolsMenu tools;
 	protected JMenu help;
 	
 	/**
@@ -30,7 +30,8 @@ public class Window {
 		menuBar.add(file);
 		menuBar.add(tools);
 		menuBar.add(help);
-		frame.add(menuBar);
+		frame.setJMenuBar(menuBar);
+		frame.add(textArea);
 		
 		
 	}

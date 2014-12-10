@@ -7,10 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class ToolsMenu  extends JMenu implements PluginListener{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	protected Window window ;

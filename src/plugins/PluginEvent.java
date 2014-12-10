@@ -19,7 +19,6 @@ public class PluginEvent extends EventObject {
 	public PluginEvent(File file) {
 			super(file);
 			this.file =file;
-	
 		}
 	/**
 	 * 

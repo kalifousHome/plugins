@@ -40,7 +40,8 @@ public class PluginFinder implements ActionListener {
 	}
 
 	/**
-	 *@param e not used
+	 *@param e the signal sent by the timer 
+	 * At every clock add or remove a plugin
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

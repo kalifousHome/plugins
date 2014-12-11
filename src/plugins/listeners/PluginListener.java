@@ -1,5 +1,7 @@
-package plugins;
+package plugins.listeners;
 import java.util.EventListener;
+
+import plugins.tools.PluginEvent;
 /**
  * Description :
  * Class representing event-listeners for plug-ins

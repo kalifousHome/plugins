@@ -1,4 +1,4 @@
-package plugins;
+package plugins.tools;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +8,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import javax.swing.Timer;
+
+import plugins.listeners.PluginListener;
 
 /**
  * Description : Class representing action listeners for plug-ins

@@ -1,8 +1,10 @@
-package plugins;
+package plugins.tools;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.lang.reflect.Constructor;
+
+import plugins.Plugin;
 
 /**
  * Class PluginFilter used to find plug-in files with .class extension

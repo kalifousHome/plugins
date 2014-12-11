@@ -1,9 +1,11 @@
-package plugins;
+package plugins.graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JTextArea;
+
+import plugins.listeners.ToolsMenu;
 
 /**
  * 
@@ -11,10 +13,10 @@ import javax.swing.JTextArea;
  * The Graphic class who has to know the plugins and can send an Action when you click somewhere.
  */
 public class Window {
-	protected JFrame frame ;
+	public JFrame frame ;
 	protected JTextArea textArea ;
 	protected JMenu file ;
-	protected ToolsMenu tools;
+	public ToolsMenu tools;
 	protected JMenu help;
 	
 	/**

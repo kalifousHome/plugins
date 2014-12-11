@@ -2,6 +2,9 @@ package plugins;
 
 import java.io.File;
 
+import plugins.graphics.Window;
+import plugins.tools.PluginFinder;
+
 
 
 public class Main {

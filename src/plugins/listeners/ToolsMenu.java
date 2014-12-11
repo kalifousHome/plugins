@@ -1,10 +1,14 @@
-package plugins;
+package plugins.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
+import plugins.Plugin;
+import plugins.graphics.Window;
+import plugins.tools.PluginEvent;
 
 public class ToolsMenu extends JMenu implements PluginListener {
 	private static final long serialVersionUID = 1L;

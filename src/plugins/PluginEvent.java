@@ -12,7 +12,8 @@ public class PluginEvent extends EventObject {
 	 */
 	private static final long serialVersionUID = -1343070984436215419L;
 	
-	private File file;
+	protected File file;	
+	
 	/**
 	 *@param file the event trigger
 	 */

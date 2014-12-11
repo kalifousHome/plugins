@@ -1,7 +1,28 @@
-TODO LIST
+COO : PLUGINS
 
-commentaires : bien
-affichage graphique :
-main : 
-test : 
-comprehension : 
+Binôme : Traoré Kalifou - Caron Matthieu
+
+fichiers : 
+
+- le dossier doc contient toute la documentation du projet (voir doc/index.html)
+
+- le dossier src contient les sources de notre projet. 
+  Il contient un package général (plugins) .
+  Il contient un dossier  test avec des classes de test (symétriquement) dans les package de meme noms 
+   que les package des classes testées (plugins,plugins.tools etc) .
+  Il contient un dossier main avec un class test main (dans un package main)
+  
+  Le package plugin du dossier src en comporte  : 
+  	 un package graphics qui implémente la fenetre graphique 
+  	 un package listeners qui implémente les listeners en attente de plugins .
+  	 un package tools qui implémente les outils necessaire à modeliser l'ajout de plugins(filtres,event,timer,finder)
+     deux fichies(classe et interface) : plugin qui est l'interface definissant le comportement d'un plugin
+   et ToUpperCase qui est une classe implementant ce comportement et dont la spécificité est de mettre en majuscule un texte
+   
+  	L'implémentation précise de chaque élement et structure est décrite dans la documentation des packages et des classes.
+    
+  
+- un package de test est également présent dans le package plugins, il couvre  pourcent du code.
+
+- le dossier bin contient les .class
+  

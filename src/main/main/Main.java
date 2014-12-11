@@ -1,4 +1,5 @@
-package plugins;
+package main;
+
 
 import java.io.File;
 

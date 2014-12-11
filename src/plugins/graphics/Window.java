@@ -14,10 +14,10 @@ import plugins.listeners.ToolsMenu;
  */
 public class Window {
 	public JFrame frame ;
-	protected JTextArea textArea ;
+	public JTextArea textArea ;
 	protected JMenu file ;
 	public ToolsMenu tools;
-	protected JMenu help;
+	public JMenu help;
 	
 	/**
 	 * constructor which take the name of the window

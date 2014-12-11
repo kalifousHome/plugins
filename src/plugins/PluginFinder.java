@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.swing.Timer;
+
 /**
  * Description :
  *  Class representing action listeners for plug-ins
@@ -23,10 +25,10 @@ public class PluginFinder implements ActionListener {
 									 * seconde
 									 */
 	protected final List<PluginListener> listeners = new ArrayList<PluginListener>();
-	protected final ConfigurableTimer timer;
+	protected final Timer timer;
 	/* Set of identified plug-ins */
 	protected Set<File> knownFiles = new HashSet<File>();
-	protected PluginFilter filter;
+	protected PluginFilter filter/*= new PluginFilter()*/;
 
 	/**
 	 *@param directory
@@ -36,7 +38,7 @@ public class PluginFinder implements ActionListener {
 	public PluginFinder(File directory) {
 
 		this.directory = directory;
-		this.timer = new ConfigurableTimer(this);
+		this.timer = new Timer(REFRESH_INTERVAL_MS,this);
 	}
 
 	/**
@@ -45,10 +47,12 @@ public class PluginFinder implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.println("timer marche");
 		Set<File> currentFiles = ListFiles();
 		Set<File> newFiles = new HashSet<File>(currentFiles);
 		newFiles.removeAll(knownFiles);
 		for (File file : newFiles) {
+			System.out.println("je rentre ici");
 			firePluginAdded(file);
 		}
 		knownFiles = currentFiles;
@@ -62,7 +66,7 @@ public class PluginFinder implements ActionListener {
 	 */
 	protected Set<File> ListFiles() {
 
-		return new HashSet<File>(Arrays.asList(directory.listFiles(filter)));
+		return new HashSet<File>(Arrays.asList(directory.listFiles(this.filter)));
 
 	}
 
@@ -73,8 +77,10 @@ public class PluginFinder implements ActionListener {
 	protected void firePluginAdded(File file) {
 		for (PluginListener listener : listeners) {
 			/* Only in case if it satisfies the conditions defined by filters ?? */
-			if(filter.accept(file, file.getName()))
+			/*if(filter.accept(file, file.getName())){*/
 				listener.pluginAdded(new PluginEvent(file));
+				System.out.println("j ai trouve "+file.getName());
+			/*}*/
 		}
 	}
 
@@ -83,15 +89,15 @@ public class PluginFinder implements ActionListener {
 	 */
 	public void start() {
 
-		timer.start(REFRESH_INTERVAL_MS);
+		timer.start();
 
 	}
 	/** 
 	 * 
 	 *@param listener the listener to add to the list of listeners
 	 */
-	public synchronized void addListener(PluginListener listener) {
-
+	public void addListener(PluginListener listener) {
+		System.out.println("addListener:nouveau listener pour pluginfinder");
 		listeners.add(listener);
 
 	}
@@ -99,7 +105,7 @@ public class PluginFinder implements ActionListener {
 	/**
 	 * @param listener the listener to remove in the list of listeners 
 	 */
-	public synchronized void removeListener(PluginListener listener){
+	public void removeListener(PluginListener listener){
 		listeners.remove(listener);
 	}
 }

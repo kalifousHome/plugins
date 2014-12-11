@@ -20,13 +20,15 @@ public class ToolsMenu  extends JMenu implements PluginListener{
 	 */
 	@Override
 	public void pluginAdded(PluginEvent e) {
+		final Plugin plugin;
 		String nomClass = e.getFileName();
 		nomClass=nomClass.substring(0, (nomClass.length()-6));
+		System.out.println(nomClass);
 		Class<?> tmp;
 		try {
 			tmp = Class.forName("plugins."+nomClass);
 
-		final Plugin plugin = (Plugin) tmp.newInstance();
+		plugin = (Plugin) tmp.newInstance();
 		JMenuItem item = new JMenuItem(plugin.getLabel());
 		item.addActionListener(new ActionListener() {
 			/**
@@ -40,13 +42,10 @@ public class ToolsMenu  extends JMenu implements PluginListener{
 			}
 		});
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}

@@ -20,13 +20,12 @@ public class Main {
 	 * dans le main on la voit ...
 	 */
 	public static void main(String[] args) {
-		File directory = new File("/home/git/plugins/bin/plugins");
+		File directory = new File("dropin/plugins");
 		Main main = new Main(directory);
+		System.out.println("lancement du main");
 		main.finder.start();
 		main.window.frame.setVisible(true);
-		while(true){
-			
-		}
+		
 
 	}
 }

@@ -32,7 +32,8 @@ public class Window {
 		menuBar.add(help);
 		frame.setJMenuBar(menuBar);
 		frame.add(textArea);
-		
+		frame.setSize(800, 200);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	

@@ -51,26 +51,26 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	/**
+	 * Tells if the class is in in the plug-in package
 	 * 
-	 * 
-	 * @param theClass
-	 * @return returns
+	 * @param theClass the class we want to know if it belongs to the plug-in package
+	 * @return returns true if the class is contained in the plug-in package, false if not
 	 */
 	protected boolean classInPluginPackage(Class<?> theClass) {
 		return theClass.getPackage().getName().equals("plugins");
 	}
 
 	/**
-	 * 
-	 * @param theClass
-	 * @return returns
+	 * Tells if a class implements the Plugin interface
+	 * @param theClass we want to know if it implements the interface
+	 * @return returns true if it implements Plugin, false if not.
 	 */
 	protected boolean inheritfromPlugin(Class<?> theClass) {
 		return Plugin.class.isAssignableFrom(theClass);
 	}
 
 	/**
-	 * 
+	 * 0
 	 * @param dir
 	 * @param filename
 	 * @return returns

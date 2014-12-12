@@ -9,7 +9,7 @@ import plugins.tools.PluginEvent;
  */
 
 public interface PluginListener extends EventListener{
-	/** 	 * 
+	/** 	  
 	 *@param e the added plug-in
 	 */
 	public void pluginAdded(PluginEvent e);

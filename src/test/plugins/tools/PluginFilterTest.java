@@ -11,10 +11,7 @@ import plugins.ToUpperCase;
 
 public class PluginFilterTest {
 
-	private static final Class<?> ToUpperCase = null;
-	private static final Class<?> ConfigurableTimer = null;
-
-	@Test
+		@Test
 	public void fileExtensionIsClass() {
 		String isTxt = "file.txt";
 		String isClass = "file.class";
@@ -27,33 +24,17 @@ public class PluginFilterTest {
 	public void inheritfromPlugin() {
 
 		PluginFilter f = new PluginFilter();
-		assertFalse(f.inheritfromPlugin(ToUpperCase.getClass()));
-		assertFalse(f.inheritfromPlugin(ConfigurableTimer.getClass()));
+		assertTrue(f.inheritfromPlugin(new ToUpperCase().getClass()));
+		assertFalse(f.inheritfromPlugin(new ConfigurableTimer(null).getClass()));
 
 	}
-	/*
-	 * public void testing(File dir, String name) {
-	 * 
-	 * if (this.accept(dir, name)) {
-	 * 
-	 * try {
-	 * 
-	 * Class<?> classTest = Class.forName("plugins.FunnyPlugin");
-	 * 
-	 * Plugin test = (Plugin) classTest.newInstance();
-	 * 
-	 * System.out.print(test.getLabel());
-	 * 
-	 * System.out.print(test.helpMessage());
-	 * 
-	 * } catch (Exception e) {
-	 * 
-	 * e.printStackTrace();
-	 * 
-	 * }
-	 * 
-	 * } else System.out.print("DOESNT ACCEPT THE PLUGIN\n");
-	 * 
-	 * }
-	 */
+	@Test
+	public void getclass() {
+
+		PluginFilter f = new PluginFilter();
+		assertTrue(f.inheritfromPlugin(new ToUpperCase().getClass()));
+		assertFalse(f.inheritfromPlugin(new ConfigurableTimer(null).getClass()));
+
+	}
+	
 }

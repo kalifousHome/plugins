@@ -30,7 +30,7 @@ public class PluginFinder implements ActionListener {
 	protected Set<File> knownFiles = new HashSet<File>();
 	protected PluginFilter filter/* = new PluginFilter() */;
 
-	/**
+	/** Builds a 
 	 * @param directory
 	 *            the directory where we are going to check the content in order
 	 *            to find the .class

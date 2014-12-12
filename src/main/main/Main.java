@@ -1,6 +1,11 @@
-package plugins;
+package main;
+
 
 import java.io.File;
+
+import plugins.graphics.Window;
+import plugins.tools.PluginFinder;
+
 
 
 public class Main {
@@ -20,13 +25,12 @@ public class Main {
 	 * dans le main on la voit ...
 	 */
 	public static void main(String[] args) {
-		File directory = new File("/home/git/plugins/bin/plugins");
+		File directory = new File("git/plugins/dropins/");
 		Main main = new Main(directory);
+		System.out.println("lancement du main");
 		main.finder.start();
 		main.window.frame.setVisible(true);
-		while(true){
-			
-		}
+		
 
 	}
 }

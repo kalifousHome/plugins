@@ -1,8 +1,10 @@
-package plugins;
+package plugins.tools;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.lang.reflect.Constructor;
+
+import plugins.Plugin;
 
 /**
  * Class PluginFilter used to find plug-in files with .class extension
@@ -12,11 +14,11 @@ import java.lang.reflect.Constructor;
 public class PluginFilter implements FilenameFilter {
 
 	/**
-	 * @param dir
+	 *@param dir
 	 *            drop-in directory
-	 * @param name
+	 *@param name
 	 *            name of the plug-in to add
-	 * @return if the plug-in can be added
+	 *@return if the plug-in can be added
 	 **/
 	@Override
 	public boolean accept(File dir, String name) {
@@ -91,30 +93,6 @@ public class PluginFilter implements FilenameFilter {
 		return filename.endsWith(".class");
 	}
 
-	public void testing(File dir, String name) {
-
-		if (this.accept(dir, name)) {
-
-			try {
-
-				Class<?> classTest = Class.forName("plugins.FunnyPlugin");
-
-				Plugin test = (Plugin) classTest.newInstance();
-
-				System.out.print(test.getLabel());
-
-				System.out.print(test.helpMessage());
-
-			} catch (Exception e) {
-
-				e.printStackTrace();
-
-			}
-
-		}
-		else
-			System.out.print("DOESNT ACCEPT THE PLUGIN\n");
-
-	}
+	
 
 }

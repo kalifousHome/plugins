@@ -1,4 +1,6 @@
-package plugins;
+package plugins.listeners;
+
+import plugins.tools.PluginEvent;
 
 /**
  * Description :

@@ -1,12 +1,12 @@
 package plugins.tools;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.io.File;
+import javax.swing.Timer;
 
 import org.junit.Test;
 
-import plugins.Plugin;
 import plugins.ToUpperCase;
 
 public class PluginFilterTest {
@@ -25,7 +25,7 @@ public class PluginFilterTest {
 
 		PluginFilter f = new PluginFilter();
 		assertTrue(f.inheritfromPlugin(new ToUpperCase().getClass()));
-		assertFalse(f.inheritfromPlugin(new ConfigurableTimer(null).getClass()));
+		assertFalse(f.inheritfromPlugin(new Timer(1000,null).getClass()));
 
 	}
 	@Test
@@ -33,7 +33,7 @@ public class PluginFilterTest {
 
 		PluginFilter f = new PluginFilter();
 		assertTrue(f.inheritfromPlugin(new ToUpperCase().getClass()));
-		assertFalse(f.inheritfromPlugin(new ConfigurableTimer(null).getClass()));
+		assertFalse(f.inheritfromPlugin(new Timer(0,null).getClass()));
 
 	}
 	

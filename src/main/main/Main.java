@@ -25,7 +25,7 @@ public class Main {
 	 * dans le main on la voit ...
 	 */
 	public static void main(String[] args) {
-		File directory = new File("git/plugins/dropins/");
+		File directory = new File("dropin");
 		Main main = new Main(directory);
 		System.out.println("lancement du main");
 		main.finder.start();

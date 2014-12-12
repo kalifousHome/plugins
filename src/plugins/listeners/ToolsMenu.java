@@ -47,7 +47,7 @@ public class ToolsMenu extends JMenu implements PluginListener {
 				}
 			});
 			this.window.tools.add(item);
-			this.window.help.add(item);
+		/*	this.window.help.add(item);*/
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {

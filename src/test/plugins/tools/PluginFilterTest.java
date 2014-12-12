@@ -32,9 +32,14 @@ public class PluginFilterTest {
 	public void getclass() {
 
 		PluginFilter f = new PluginFilter();
-		assertTrue(f.inheritfromPlugin(new ToUpperCase().getClass()));
-		assertFalse(f.inheritfromPlugin(new ConfigurableTimer(null).getClass()));
+		File dir = new File("plugins/");
+		File chocolat = new File(dir,"Chocolat.class");
+		File toUpperCase = new File(dir,"ToUpperCase.class");
+		
+		assertNull( f.getClass(null,chocolat.getName()));	
 
+		assertEquals( f.getClass(null,chocolat.getName()),new ToUpperCase().getClass());
+		
 	}
 	
 }

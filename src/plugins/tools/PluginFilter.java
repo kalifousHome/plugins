@@ -70,7 +70,7 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	/**
-	 * 0
+	 *  Returns the 
 	 * @param dir
 	 * @param filename
 	 * @return returns

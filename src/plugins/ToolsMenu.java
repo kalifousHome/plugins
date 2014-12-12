@@ -20,15 +20,21 @@ public class ToolsMenu  extends JMenu implements PluginListener{
 	 */
 	@Override
 	public void pluginAdded(PluginEvent e) {
+
 		String nomClass = e.getFileName();
+	
 		nomClass=nomClass.substring(0, (nomClass.length()-6));
+	
 		Class<?> tmp;
+	
 		try {
 			tmp = Class.forName("plugins."+nomClass);
 
 		final Plugin plugin = (Plugin) tmp.newInstance();
+		
 		JMenuItem item = new JMenuItem(plugin.getLabel());
-		item.addActionListener(new ActionListener() {
+		
+		item.addActionListener( new ActionListener() {
 			/**
 			 * recuperer le text dans le text area et faire transforme dessus et le renvoyer;
 			 */
@@ -38,7 +44,8 @@ public class ToolsMenu  extends JMenu implements PluginListener{
 				text = plugin.transform(text);
 				window.textArea.setText(text);
 			}
-		});
+		}
+		);
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -57,7 +64,8 @@ public class ToolsMenu  extends JMenu implements PluginListener{
 	 */
 	@Override
 	public void pluginRemoved(PluginEvent e) {
-		// TODO Auto-generated method stub
+		
+		System.out.println("Plugin supprimé : "+e.getFileName());
 		
 	}
 

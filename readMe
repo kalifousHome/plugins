@@ -12,17 +12,24 @@ fichiers :
    que les package des classes testées (plugins,plugins.tools etc) .
   Il contient un dossier main avec un class test main (dans un package main)
   
-  Le package plugin du dossier src en comporte  : 
+  Le package plugins du dossier src en comporte  : 
+  	
   	 un package graphics qui implémente la fenetre graphique 
+  	
   	 un package listeners qui implémente les listeners en attente de plugins .
-  	 un package tools qui implémente les outils necessaire à modeliser l'ajout de plugins(filtres,event,timer,finder)
+  	 
+  	 un package tools qui implémente les outils necessaire à modeliser l'ajout de plugins(filtres,event,finder)
      deux fichies(classe et interface) : plugin qui est l'interface definissant le comportement d'un plugin
    et ToUpperCase qui est une classe implementant ce comportement et dont la spécificité est de mettre en majuscule un texte
    
   	L'implémentation précise de chaque élement et structure est décrite dans la documentation des packages et des classes.
     
   
-- un package de test est également présent dans le package plugins, il couvre  pourcent du code.
+- un package de test est également présent dans le package plugins, il couvre 60  pourcent du code.
 
 - le dossier bin contient les .class
+  
+- un ULM gif 
+
+- une archive executable dans le dossier src
   

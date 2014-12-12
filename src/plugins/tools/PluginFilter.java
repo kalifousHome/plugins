@@ -13,7 +13,7 @@ import plugins.Plugin;
 
 public class PluginFilter implements FilenameFilter {
 
-	/**
+	/** Tells if the Plugin filter accepts the file as a plug-in
 	 *@param dir
 	 *            drop-in directory
 	 *@param name
@@ -34,12 +34,7 @@ public class PluginFilter implements FilenameFilter {
 				&& classHasParameterLessConstructor(theClass);
 	}
 
-	/**
-	 * 
-	 * @param theClass
-	 * @return returns
-	 */
-
+	 
 	protected boolean classHasParameterLessConstructor(Class<?> theClass) {
 
 		for (Constructor<?> constructor : theClass.getConstructors()) {
@@ -51,8 +46,7 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	/**
-	 * Tells if the class is in in the plug-in package
-	 * 
+	 * Tells if the class is in in the plug-in package 
 	 * @param theClass the class we want to know if it belongs to the plug-in package
 	 * @return returns true if the class is contained in the plug-in package, false if not
 	 */
@@ -70,10 +64,10 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	/**
-	 * 0
-	 * @param dir
-	 * @param filename
-	 * @return returns
+	 *  Returns the existing class (inside the plugins package )  of a .class file 
+	 * @param dir the directory where to look for the file
+	 * @param filename the name of the file
+	 * @return returns the Class whitin the package if it exists, or NULL if not
 	 */
 	protected Class<?> getClass(File dir, String filename) {
 		String className = filename.replaceFirst("\\.class$", "");
@@ -85,14 +79,14 @@ public class PluginFilter implements FilenameFilter {
 	}
 
 	/***
-	 * 
-	 * @param filename
-	 * @return returns
+	 * Tells if the file is a ".class " file
+	 * @param filename the file we want to check the extension
+	 * @return returns true if the file ends by ".class", false if not .
 	 */
 	protected boolean fileExtensionIsClass(String filename) {
 		return filename.endsWith(".class");
 	}
 
 	
-
+  
 }

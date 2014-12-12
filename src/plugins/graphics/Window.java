@@ -5,7 +5,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JTextArea;
 
-import plugins.listeners.ToolsMenu;
+import plugins.listeners.GraphicalMenu;
 
 /**
  * 
@@ -16,7 +16,7 @@ public class Window {
 	public JFrame frame ;
 	public JTextArea textArea ;
 	protected JMenu file ;
-	public ToolsMenu tools;
+	public GraphicalMenu tools;
 	public JMenu help;
 	
 	/**
@@ -27,7 +27,7 @@ public class Window {
 		this.textArea = new JTextArea();
 		this.file = new JMenu("file") ;
 		this.help = new JMenu("help") ;
-		this.tools = new ToolsMenu("tools",this);
+		this.tools = new GraphicalMenu("tools",this);
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(file);
 		menuBar.add(tools);
@@ -38,6 +38,10 @@ public class Window {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
+
+	public String getName(){
+		return frame.getTitle();
+	}
 	
-	
+	  
 }

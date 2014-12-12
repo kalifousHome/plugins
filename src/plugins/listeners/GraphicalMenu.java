@@ -10,12 +10,12 @@ import plugins.Plugin;
 import plugins.graphics.Window;
 import plugins.tools.PluginEvent;
 
-public class ToolsMenu extends JMenu implements PluginListener {
+public class GraphicalMenu extends JMenu implements PluginListener {
 	private static final long serialVersionUID = 1L;
 
 	protected Window window;
 
-	public ToolsMenu(String label, Window window) {
+	public GraphicalMenu(String label, Window window) {
 		super(label);
 		this.window = window;
 	}
@@ -73,5 +73,5 @@ public class ToolsMenu extends JMenu implements PluginListener {
 		// TODO Auto-generated method stub
 
 	}
-
+      
 }
